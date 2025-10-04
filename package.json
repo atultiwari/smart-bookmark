@@ -7,17 +7,19 @@
     "build": "node tools/build.mjs",
     "clean": "rm -rf dist",
     "test": "npm run build && node dist/tests/run-tests.js",
-    "lint": "eslint . --ext .ts,.js",
+    "lint": "eslint . --ext .js,.ts",
     "format": "prettier --write ."
   },
   "devDependencies": {
     "@types/chrome": "^0.0.255",
     "@types/node": "^22.7.4",
+    "@eslint/js": "^9.11.1",
     "eslint": "^9.11.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.1",
     "@typescript-eslint/eslint-plugin": "^8.11.0",
     "@typescript-eslint/parser": "^8.11.0",
+    "typescript-eslint": "^8.11.0",
     "prettier": "^3.3.3",
     "typescript": "^5.4.5"
   }
