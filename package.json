@@ -1,6 +1,6 @@
 {
   "name": "smart-tab-bookmarking",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "type": "module",
   "description": "Smart Bookmark — v2 Chrome extension build scripts",
   "scripts": {
