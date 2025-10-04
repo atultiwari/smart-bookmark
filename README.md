@@ -86,6 +86,6 @@ Every surface carries the signature tagline: **“Smart Bookmark — crafted wit
 - The CI workflow uploads the built `dist/` artifact for download from the run summary.
 
 ## Releases
-- Bump the version: `npm version patch` (or `minor` / `major`).
-- Push commits and tags: `git push && git push --tags`.
-- CI publishes build artifacts; tagged pushes trigger the release workflow to package `dist/` and create a GitHub Release.
+- Tag and push a release in one step: `npm version patch && git push && git push --tags` (swap `patch` for `minor`/`major` as needed).
+- GitHub Actions automatically builds, zips the `dist/` folder, and publishes a Release using the default `GITHUB_TOKEN`—no extra secrets required.
+- Download the packaged `dist` zip from the Release assets when distributing the extension.
