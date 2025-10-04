@@ -1,0 +1,57 @@
+{
+  "manifest_version": 3,
+  "name": "Smart Bookmark — v2",
+  "version": "2.0.0",
+  "description": "Smart Bookmark — crafted with care by Dr. Atul Tiwari. Organize, classify, and deduplicate research tabs with AI assistance.",
+  "action": {
+    "default_icon": {
+      "16": "assets/icons/logo-16.png",
+      "48": "assets/icons/logo-48.png",
+      "128": "assets/icons/logo-128.png"
+    },
+    "default_title": "Smart Bookmark",
+    "default_popup": "pages/popup.html"
+  },
+  "icons": {
+    "16": "assets/icons/logo-16.png",
+    "48": "assets/icons/logo-48.png",
+    "128": "assets/icons/logo-128.png"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "tabs",
+    "notifications",
+    "contextMenus"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background/index.js",
+    "type": "module"
+  },
+  "chrome_url_overrides": {
+    "newtab": "pages/newtab.html"
+  },
+  "options_ui": {
+    "page": "pages/options.html",
+    "open_in_tab": true
+  },
+  "commands": {
+    "save-active-tab": {
+      "suggested_key": {
+        "default": "Alt+S"
+      },
+      "description": "Quick save the active tab"
+    },
+    "open-dashboard": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y",
+        "mac": "Command+Shift+Y"
+      },
+      "description": "Open Smart Bookmark dashboard"
+    }
+  }
+}

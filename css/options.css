@@ -1,0 +1,149 @@
+:root {
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: radial-gradient(circle at top left, #0f172a, #020617);
+  color: #f8fafc;
+}
+
+body {
+  margin: 0;
+}
+
+.options {
+  max-width: 840px;
+  margin: 0 auto;
+  padding: 40px 32px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.options__header h1 {
+  margin: 0;
+  font-size: 34px;
+}
+
+.options__header p {
+  margin: 8px 0 0;
+  color: #cbd5f5;
+}
+
+.card {
+  background: rgba(15, 23, 42, 0.72);
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  border-radius: 18px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.muted {
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.input-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 10px;
+}
+
+.input-row--model {
+  grid-template-columns: 1fr auto;
+}
+
+.input-row input {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  border-radius: 12px;
+  padding: 10px 12px;
+  color: inherit;
+}
+
+.input-row button {
+  border-radius: 12px;
+  border: none;
+  background: rgba(37, 99, 235, 0.35);
+  color: #f8fafc;
+  font-weight: 600;
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+.status {
+  min-height: 18px;
+  font-size: 13px;
+  color: #a5b4fc;
+}
+
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(37, 99, 235, 0.25);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 13px;
+  color: #bfdbfe;
+}
+
+.chip__remove {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.toggle input {
+  width: 24px;
+  height: 24px;
+}
+
+.data-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.data-actions button,
+.button-like {
+  border-radius: 12px;
+  border: none;
+  background: rgba(37, 99, 235, 0.35);
+  color: #f8fafc;
+  font-weight: 600;
+  padding: 10px 16px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.danger {
+  background: rgba(220, 38, 38, 0.35);
+  color: #fecaca;
+}
+
+@media (max-width: 720px) {
+  .input-row {
+    grid-template-columns: 1fr;
+  }
+}

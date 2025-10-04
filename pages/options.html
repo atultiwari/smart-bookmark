@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Smart Bookmark Settings</title>
+    <link rel="stylesheet" href="../css/options.css" />
+  </head>
+  <body>
+    <main class="options">
+      <header class="options__header">
+        <h1>Smart Bookmark settings</h1>
+        <p>Configure Gemini access, interests, tag presets, and data management for your knowledge workspace.</p>
+      </header>
+
+      <section class="card">
+        <h2>Gemini API key</h2>
+        <p class="muted">Paste your Gemini key. It is stored with Chrome sync and never leaves your browser.</p>
+        <div class="input-row">
+          <input id="gemini-key" type="password" placeholder="AIza..." autocomplete="off" />
+          <button id="save-gemini" type="button">Save</button>
+          <button id="toggle-gemini" type="button">Show</button>
+        </div>
+        <div class="input-row input-row--model">
+          <input
+            id="gemini-model"
+            type="text"
+            placeholder="Model (e.g. gemini-1.5-flash-001)"
+            list="gemini-models"
+            autocomplete="off"
+          />
+          <button id="save-model" type="button">Set model</button>
+        </div>
+        <datalist id="gemini-models">
+          <option value="gemini-2.5-flash"></option>
+          <option value="gemini-1.5-flash-001"></option>
+          <option value="gemini-1.5-pro-latest"></option>
+          <option value="gemini-1.0-pro"></option>
+          <option value="gemini-1.0-pro-vision-latest"></option>
+        </datalist>
+        <p id="gemini-status" class="status" role="status"></p>
+      </section>
+
+      <section class="card">
+        <h2>Interests</h2>
+        <p class="muted">Seed categories that guide heuristics when Gemini is unavailable.</p>
+        <div id="interest-list" class="chip-list"></div>
+        <div class="input-row">
+          <input id="interest-input" type="text" placeholder="Add interest" />
+          <button id="add-interest" type="button">Add</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Tag presets</h2>
+        <p class="muted">Curate quick-add tags for the popup and filters.</p>
+        <div id="tag-preset-list" class="chip-list"></div>
+        <div class="input-row">
+          <input id="tag-preset-input" type="text" placeholder="Add tag" />
+          <button id="add-tag-preset" type="button">Add</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Subcategory presets</h2>
+        <p class="muted">Provide reusable subcategories (Tutorial, Paper, Dataset…)</p>
+        <div id="subcategory-preset-list" class="chip-list"></div>
+        <div class="input-row">
+          <input id="subcategory-preset-input" type="text" placeholder="Add subcategory" />
+          <button id="add-subcategory-preset" type="button">Add</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>New tab override</h2>
+        <label class="toggle">
+          <input id="replace-newtab" type="checkbox" />
+          <span>Replace Chrome's new tab with Smart Bookmark dashboard</span>
+        </label>
+        <p class="muted">Disable to show a note on the dashboard with a one-click jump back to the default new tab.</p>
+      </section>
+
+      <section class="card">
+        <h2>Data management</h2>
+        <div class="data-actions">
+          <button id="export-data" type="button">Export JSON</button>
+          <label for="import-file" class="button-like">Import JSON</label>
+          <input id="import-file" type="file" accept="application/json" hidden />
+          <button id="clear-data" type="button" class="danger">Clear all data</button>
+        </div>
+        <p id="data-status" class="status" role="status"></p>
+      </section>
+    </main>
+
+    <template id="chip-template">
+      <span class="chip">
+        <span class="chip__label"></span>
+        <button class="chip__remove" type="button" aria-label="Remove">×</button>
+      </span>
+    </template>
+
+    <script type="module" src="../options/index.js"></script>
+  </body>
+</html>

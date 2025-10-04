@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Smart Bookmark Dashboard</title>
+    <link rel="stylesheet" href="../css/newtab.css" />
+  </head>
+  <body>
+    <div class="dashboard">
+      <div id="override-warning" class="override" hidden>
+        <p>New tab override is disabled. Use the button to open Google&rsquo;s default start page.</p>
+        <button id="open-default" type="button">Open Google start page</button>
+      </div>
+      <header class="dashboard__header">
+        <div class="brand">
+          <img src="../assets/icons/logo-48.png" alt="logo" class="logo brand__icon" />
+          <div class="brand__text">
+            <h1>Smart Bookmark</h1>
+            <p class="brand__tagline">Smart Bookmark — crafted with care by Dr. Atul Tiwari</p>
+          </div>
+        </div>
+        <form id="google-search" class="google-search" action="https://www.google.com/search" method="get">
+          <input type="text" name="q" placeholder="Search Google or type a URL" aria-label="Google Search" />
+          <button type="submit">Search</button>
+        </form>
+        <div class="layout-toggle">
+          <button id="list-toggle" class="layout-toggle__btn" aria-label="List view">☰</button>
+          <button id="grid-toggle" class="layout-toggle__btn" aria-label="Grid view">▥</button>
+        </div>
+      </header>
+
+      <div class="dashboard__body">
+        <aside class="filters">
+          <section class="filter">
+            <h2>Search</h2>
+            <input id="filter-text" type="search" placeholder="Search title, summary, tags, domain" />
+          </section>
+
+          <section class="filter">
+            <h2>Category</h2>
+            <select id="filter-category">
+              <option value="">All categories</option>
+            </select>
+          </section>
+
+          <section class="filter">
+            <h2>Subcategory</h2>
+            <div id="filter-subcategories" class="chip-list"></div>
+          </section>
+
+          <section class="filter">
+            <h2>Tags</h2>
+            <div id="filter-tags" class="chip-list"></div>
+          </section>
+
+          <section class="filter">
+            <h2>Domains</h2>
+            <div id="filter-domains" class="chip-list"></div>
+          </section>
+
+          <section class="filter filter--dates">
+            <h2>Date range</h2>
+            <label>From <input id="filter-date-from" type="date" /></label>
+            <label>To <input id="filter-date-to" type="date" /></label>
+          </section>
+
+          <section class="filter filter--views">
+            <h2>Saved views</h2>
+            <div id="saved-views" class="chip-list chip-list--stack"></div>
+            <div class="view-save">
+              <input id="view-name" type="text" placeholder="Name current filters" />
+              <button id="save-view" type="button">Save view</button>
+            </div>
+          </section>
+        </aside>
+
+        <main class="results">
+          <section id="summary" class="results__summary"></section>
+          <div id="view-chips" class="view-chips"></div>
+          <section id="cards" class="cards cards--list"></section>
+        </main>
+      </div>
+    </div>
+
+    <template id="card-template">
+      <article class="card">
+        <header class="card__header">
+          <a class="card__title" target="_blank" rel="noopener noreferrer"></a>
+          <button class="card__delete" type="button" title="Delete bookmark">✕</button>
+        </header>
+        <p class="card__summary"></p>
+        <div class="card__meta">
+          <span class="card__domain"></span>
+          <span class="card__date"></span>
+        </div>
+        <div class="card__tags"></div>
+        <footer class="card__footer">
+          <button class="card__open" type="button">Open</button>
+          <button class="card__edit" type="button">Edit</button>
+        </footer>
+      </article>
+    </template>
+
+    <template id="chip-template">
+      <button class="chip" type="button"></button>
+    </template>
+
+    <script type="module" src="../newtab/index.js"></script>
+  </body>
+</html>

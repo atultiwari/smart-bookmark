@@ -1,0 +1,16 @@
+{
+  "name": "smart-tab-bookmarking",
+  "version": "0.2.0",
+  "type": "module",
+  "description": "Smart Bookmark — v2 Chrome extension build scripts",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "clean": "rm -rf dist",
+    "test": "npm run build && node dist/tests/run-tests.js"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.255",
+    "@types/node": "^22.7.4",
+    "typescript": "^5.4.5"
+  }
+}

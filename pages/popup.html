@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Smart Bookmark</title>
+    <link rel="stylesheet" href="../css/popup.css" />
+  </head>
+  <body>
+    <main class="popup" id="popup">
+      <header class="popup__header">
+        <div class="popup__brand">
+          <img class="logo popup__icon" src="../assets/icons/logo-48.png" alt="Smart Bookmark logo" />
+          <div>
+            <h1>Smart Bookmark</h1>
+            <p class="popup__tagline">Quickly organize this tab with AI assistance.</p>
+          </div>
+        </div>
+        <div id="status" class="popup__status" role="status">Loading…</div>
+      </header>
+
+      <section class="popup__section">
+        <label class="popup__label" for="title-input">Title</label>
+        <input id="title-input" class="popup__input" type="text" autocomplete="off" />
+      </section>
+
+      <section class="popup__section popup__section--row">
+        <div class="popup__field">
+          <label class="popup__label" for="category-input">Category</label>
+          <input id="category-input" class="popup__input" list="category-list" autocomplete="off" />
+          <datalist id="category-list"></datalist>
+        </div>
+        <div class="popup__field">
+          <label class="popup__label" for="subcategory-input">Subcategory</label>
+          <input id="subcategory-input" class="popup__input" list="subcategory-list" autocomplete="off" />
+          <datalist id="subcategory-list"></datalist>
+        </div>
+      </section>
+
+      <section class="popup__section">
+        <label class="popup__label" for="summary-input">Summary</label>
+        <textarea id="summary-input" class="popup__textarea" rows="4" maxlength="400"></textarea>
+      </section>
+
+      <section class="popup__section">
+        <label class="popup__label">Tags</label>
+        <div id="tag-container" class="tag-container"></div>
+        <div class="tag-input">
+          <input id="tag-input" type="text" placeholder="Add tag and press Enter" list="tag-list" autocomplete="off" />
+          <datalist id="tag-list"></datalist>
+        </div>
+      </section>
+
+      <section id="suggestion" class="popup__section suggestion" hidden>
+        <header>
+          <h2>Gemini suggestion</h2>
+          <span id="suggestion-pill" class="pill">AI</span>
+        </header>
+        <p id="suggestion-summary"></p>
+        <dl class="suggestion__meta">
+          <div><dt>Category</dt><dd id="suggestion-category"></dd></div>
+          <div><dt>Subcategory</dt><dd id="suggestion-subcategory"></dd></div>
+          <div><dt>Tags</dt><dd id="suggestion-tags"></dd></div>
+          <div><dt>Rationale</dt><dd id="suggestion-rationale"></dd></div>
+        </dl>
+        <div class="suggestion__actions">
+          <button id="apply-suggestion" class="btn btn-secondary" type="button">Apply suggestion</button>
+          <button id="refresh-suggestion" class="btn" type="button">Refresh AI</button>
+        </div>
+      </section>
+
+      <footer class="popup__footer">
+        <button id="save-button" class="btn btn-primary" type="button">Save</button>
+        <button id="dashboard-button" class="btn" type="button">Dashboard</button>
+      </footer>
+    </main>
+
+    <template id="tag-template">
+      <span class="tag-chip">
+        <span class="tag-chip__label"></span>
+        <button class="tag-chip__remove" type="button" aria-label="Remove tag">×</button>
+      </span>
+    </template>
+
+    <script type="module" src="../popup/index.js"></script>
+  </body>
+</html>
