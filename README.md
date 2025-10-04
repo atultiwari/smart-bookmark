@@ -1,3 +1,5 @@
+![CI](https://github.com/atultiwari/smart-bookmark/actions/workflows/ci.yml/badge.svg)
+
 # Smart Bookmark — v2 (Chrome MV3)
 
 Smart Bookmark keeps research tabs under control: every save deduplicates against a canonical URL, asks Gemini for a concise summary + classification, and files the link by category, subcategory, and tags. The custom new-tab dashboard surfaces everything with powerful filters and saved views, while the popup lets you tweak AI suggestions before committing.
@@ -66,6 +68,10 @@ Every surface carries the signature tagline: **“Smart Bookmark — crafted wit
 - Build the extension: `npm run build`
 - Run tests: `npm run test`
 
+## Linting & Formatting
+- Run ESLint: `npm run lint`
+- Auto-format using Prettier: `npm run format`
+
 ## Load in Chrome
 1. Run `npm run build` to refresh the `dist/` folder.
 2. Navigate to `chrome://extensions`, enable **Developer Mode**.
@@ -78,3 +84,8 @@ Every surface carries the signature tagline: **“Smart Bookmark — crafted wit
 ## Continuous Integration
 - GitHub Actions runs `npm ci`, `npm run build`, and `npm test --if-present` on pushes/pull requests to `main`.
 - The CI workflow uploads the built `dist/` artifact for download from the run summary.
+
+## Releases
+- Bump the version: `npm version patch` (or `minor` / `major`).
+- Push commits and tags: `git push && git push --tags`.
+- CI publishes build artifacts; tagged pushes trigger the release workflow to package `dist/` and create a GitHub Release.

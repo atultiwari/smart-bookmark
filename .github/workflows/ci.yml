@@ -17,11 +17,22 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
+      - name: Lint
+        run: npm run lint
       - name: Test
         run: npm test --if-present
+      - name: Zip dist
+        if: always()
+        run: cd dist && zip -r ../smart-bookmark-dist.zip .
       - name: Upload dist
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: build-dist
           path: dist
+      - name: Upload dist zip
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: smart-bookmark-dist
+          path: smart-bookmark-dist.zip
